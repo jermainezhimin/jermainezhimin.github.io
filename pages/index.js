@@ -68,7 +68,44 @@ const Index = () => {
             icon="jamstackfns"
           />
         </Flex>
-        <Timeline />
+        <Timeline
+          activitiesByYear={{
+            '2018': [
+              {
+                title: 'Graduated College 🎓',
+                description:
+                  'One of my most cherished accomplishments. I worked my ass off toget this degree.',
+              },
+              {
+                title: 'Graduated College 🎓',
+                description:
+                  'One of my most cherished accomplishments. I worked my ass off toget this degree.',
+              },
+              {
+                title: 'Graduated College 🎓',
+                description:
+                  'One of my most cherished accomplishments. I worked my ass off toget this degree.',
+              },
+            ],
+            '2019': [
+              {
+                title: 'Graduated College 🎓',
+                description:
+                  'One of my most cherished accomplishments. I worked my ass off toget this degree.',
+              },
+              {
+                title: 'Graduated College 🎓',
+                description:
+                  'One of my most cherished accomplishments. I worked my ass off toget this degree.',
+              },
+              {
+                title: 'Graduated College 🎓',
+                description:
+                  'One of my most cherished accomplishments. I worked my ass off toget this degree.',
+              },
+            ],
+          }}
+        />
       </Stack>
     </Layout>
   )
