@@ -1,5 +1,6 @@
 ---
 title: "Two Forms of Pre-rendering"
+summary: "Why pre-rendering happens and their benefits"
 date: "2020-01-01"
 ---
 

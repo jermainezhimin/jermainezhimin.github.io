@@ -1,5 +1,6 @@
 ---
 title: "When to Use Static Generation v.s. Server-side Rendering"
+summary: "Something about rendering and when those two happen"
 date: "2020-01-02"
 ---
 

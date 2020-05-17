@@ -1,68 +1,84 @@
 import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import { Heading } from '@chakra-ui/core'
-import utilStyles from '../styles/utils.module.css'
-import styles from './layout.module.css'
+import NextLink from 'next/link'
+import { useColorMode, Button, Flex, Box, IconButton } from '@chakra-ui/core'
+import styled from '@emotion/styled'
+import Footer from './Footer'
 
-const name = 'Max Countryman'
-const siteTitle = "Max's Blog"
+const StickyNav = styled(Flex)`
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  backdrop-filter: saturate(180%) blur(20px);
+  transition: background-color 0.1 ease-in-out;
+`
 
-export default function Layout({ children, home }) {
+const Layout = ({ children }) => {
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  const bgColor = {
+    light: 'white',
+    dark: 'gray.900',
+  }
+  const primarytextColor = {
+    light: 'black',
+    dark: 'white',
+  }
+  const navBgColor = {
+    light: 'rgba(255, 255, 255, 0.8)',
+    dark: 'rgba(23, 25, 35, 0.8)',
+  }
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Hello, I'm Max! Thanks for dropping by my blog :)"
+    <>
+      <StickyNav
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        maxWidth="900px"
+        width="100%"
+        bg={navBgColor[colorMode]}
+        as="nav"
+        p={8}
+        mt={[0, 8]}
+        mb={8}
+        mx="auto"
+      >
+        <IconButton
+          aria-label="Toggle dark mode"
+          icon={colorMode === 'dark' ? 'sun' : 'moon'}
+          onClick={toggleColorMode}
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      <Heading className={styles.header}>
-        {home ? (
-          <>
-            <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </Heading>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
-    </div>
+        <Box>
+          <NextLink href="/blog" passHref>
+            <Button as="a" variant="ghost" p={[1, 4]}>
+              Blog
+            </Button>
+          </NextLink>
+          <NextLink href="/about" passHref>
+            <Button as="a" variant="ghost" p={[1, 4]}>
+              About
+            </Button>
+          </NextLink>
+          <NextLink href="/" passHref>
+            <Button as="a" variant="ghost" p={[1, 4]}>
+              Home
+            </Button>
+          </NextLink>
+        </Box>
+      </StickyNav>
+      <Flex
+        as="main"
+        justifyContent="center"
+        flexDirection="column"
+        bg={bgColor[colorMode]}
+        color={primarytextColor[colorMode]}
+        px={8}
+      >
+        {children}
+        <Footer />
+      </Flex>
+    </>
   )
 }
+
+export default Layout

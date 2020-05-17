@@ -1,49 +1,77 @@
 import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Date from '../components/date'
-import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
-import utilStyles from '../styles/utils.module.css'
+import { useColorMode, Heading, Text, Flex, Stack } from '@chakra-ui/core'
 
-export default function Home({ allPostsData }) {
+import Timeline from '../components/Timeline'
+import Layout from '../components/layout'
+import ProjectCard from '../components/ProjectCard'
+
+const Index = () => {
+  const { colorMode } = useColorMode()
+  const secondaryTextColor = {
+    light: 'gray.700',
+    dark: 'gray.400',
+  }
+
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/blog/[id]" as={`/blog/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
+    <Layout>
+      <Stack
+        as="main"
+        spacing={8}
+        justifyContent="center"
+        alignItems="flex-start"
+        m="0 auto 4rem auto"
+        maxWidth="700px"
+      >
+        <Flex
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          maxWidth="700px"
+        >
+          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+            Hey, I’m Max Countryman
+          </Heading>
+          <Text color={secondaryTextColor[colorMode]}>
+            I’m a magical unicorn!
+          </Text>
+        </Flex>
+        <Flex
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          maxWidth="700px"
+          mt={8}
+        >
+          <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
+            Most Popular
+          </Heading>
+        </Flex>
+        <Flex
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          maxWidth="700px"
+        >
+          <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
+            Projects
+          </Heading>
+          <ProjectCard
+            title="Mastering Next.js"
+            description="The premiere video course for building static and server-side rendered applications with Next.js and React."
+            href="https://masteringnextjs.com/"
+            icon="nextjs"
+          />
+          <ProjectCard
+            title="jamstackfns"
+            description="The best serverless functions for JAMstack applications. Deploy to Vercel or Netlify for your static site."
+            href="https://jamstackfns.com/"
+            icon="jamstackfns"
+          />
+        </Flex>
+        <Timeline />
+      </Stack>
     </Layout>
   )
 }
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData,
-    },
-  }
-}
+export default Index
