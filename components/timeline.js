@@ -9,6 +9,7 @@ import {
   Icon,
   Stack,
   Divider,
+  Box,
 } from '@chakra-ui/core'
 
 const YearDivider = () => {
@@ -45,41 +46,41 @@ const TimelineStep = ({ title, children }) => {
 
 const Timeline = ({ activitiesByYear }) => {
   return (
-    <Flex
-      flexDirection="column"
-      justifyContent="flex-start"
-      alignItems="flex-start"
-      maxWidth="700px"
-      mt={8}
-    >
-      <Heading letterSpacing="tight" mb={4} size="xl" fontWeight="bold">
-        Timeline
-      </Heading>
-      {Object.keys(activitiesByYear).map((year) => {
-        const activities = activitiesByYear[year]
-        return (
-          <>
-            <YearDivider />
-            <Heading
-              as="h3"
-              size="lg"
-              fontWeight="bold"
-              mb={4}
-              letterSpacing="tighter"
-            >
-              {year}
-            </Heading>
-            <List>
-              {activities.map((activity) => (
-                <TimelineStep key={activity.title} title={activity.title}>
-                  {activity.description}
-                </TimelineStep>
-              ))}
-            </List>
-          </>
-        )
-      })}
-    </Flex>
+    <>
+      {Object.keys(activitiesByYear)
+        .sort((a, b) => parseInt(b) - parseInt(a))
+        .map((year, index) => {
+          const activities = activitiesByYear[year]
+          return (
+            <div key={year}>
+              {index !== 0 && <YearDivider />}
+              <Heading
+                as="h3"
+                size="lg"
+                fontWeight="bold"
+                mb={4}
+                letterSpacing="tighter"
+              >
+                {year}
+              </Heading>
+              <List>
+                {activities.map((activity) => (
+                  <TimelineStep key={activity.title} title={activity.title}>
+                    {activity.description}
+                    <Box as="ul" pt={2} pl={4} ml={2}>
+                      {activity.points.map((point) => (
+                        <Box key="point" as="li" pb={1}>
+                          {point}
+                        </Box>
+                      ))}
+                    </Box>
+                  </TimelineStep>
+                ))}
+              </List>
+            </div>
+          )
+        })}
+    </>
   )
 }
 

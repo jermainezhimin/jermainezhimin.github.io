@@ -9,7 +9,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core'
 
-const ProjectCard = ({ title, description, href, icon }) => {
+const ProjectCard = ({ title, description, href, icon, size }) => {
   const { colorMode } = useColorMode()
   const borderColor = {
     light: 'gray.200',
@@ -19,7 +19,10 @@ const ProjectCard = ({ title, description, href, icon }) => {
     light: 'gray.1000',
     dark: 'white',
   }
-
+  const secondaryTextColor = {
+    light: 'gray.700',
+    dark: 'gray.400',
+  }
   return (
     <Link
       mb={4}
@@ -39,10 +42,10 @@ const ProjectCard = ({ title, description, href, icon }) => {
         p={4}
       >
         <Icon
-          aria-label="LinkedIn"
+          aria-label={`${title}-icon`}
           name={icon}
           color={iconColor[colorMode]}
-          size="32px"
+          size={size ? size : '32px'}
           ml={2}
           mr={4}
         />
@@ -56,7 +59,9 @@ const ProjectCard = ({ title, description, href, icon }) => {
           >
             {title}
           </Heading>
-          <Text lineHeight="1.3">{description}</Text>
+          <Text color={secondaryTextColor[colorMode]} lineHeight="1.3">
+            {description}
+          </Text>
         </Stack>
       </Flex>
     </Link>
