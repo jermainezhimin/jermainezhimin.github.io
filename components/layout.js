@@ -58,12 +58,7 @@ const Layout = ({ children }) => {
           name="description"
           content="Read articles about the magical field of software engineering"
         />
-        {/* <meta
-          property="og:image"
-          content={`https://og-image.now.sh/${encodeURI(
-            'hi'
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        /> */}
+        <meta property="og:image" content="/images/preview.png" />
         <meta name="og:title" content={siteTitle} />
         <meta name="og:url" content="http://www.jermainecheng.com" />
         <meta name="twitter:card" content="summary_large_image" />

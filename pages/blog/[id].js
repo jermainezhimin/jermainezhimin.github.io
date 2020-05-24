@@ -17,7 +17,7 @@ import { BlogComponents } from '../../components/blogComponents'
 import { getAllBlogIds, getBlogData } from '../../lib/blog'
 
 const editUrl = (slug) =>
-  `https://github.com/leerob/leerob.io/edit/master/pages/blog/${slug}.mdx`
+  `https://github.com/jermaine/blog/edit/master/blogs/${slug}.md`
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://leerob.io/blog/${slug}`
@@ -67,12 +67,12 @@ export default function Post({ postData }) {
             <Flex align="center">
               <Avatar
                 size="xs"
-                name="Max Countryman"
-                src="https://avatars1.githubusercontent.com/u/74351?s=460&v=4"
+                name="Jermaine Countryman"
+                src="/images/profile.jpeg"
                 mr={2}
               />
               <Text fontSize="sm" color={textColor[colorMode]}>
-                {'Max Countryman / '}
+                {'Jermaine Countryman / '}
                 <Date dateString={postData.date} />
               </Text>
             </Flex>
