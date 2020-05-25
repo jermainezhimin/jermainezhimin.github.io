@@ -12,7 +12,11 @@ import {
 } from '@chakra-ui/core'
 import Footer from './footer'
 
+const site = 'http://www.jermainecheng.com'
 const siteTitle = "Jermaine's Blog"
+const siteDescription =
+  'Read articles about the magical field of software engineering'
+const sitePreview = '/images/preview.png'
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -54,14 +58,23 @@ const Layout = ({ children }) => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>{siteTitle}</title>
+        <meta name="title" content="Jermaine's Blog" />
         <meta
           name="description"
           content="Read articles about the magical field of software engineering"
         />
-        <meta property="og:image" content="/images/preview.png" />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="og:url" content="http://www.jermainecheng.com" />
-        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={site} />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={siteDescription} />
+        <meta property="og:image" content={sitePreview} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={site} />
+        <meta property="twitter:title" content={siteTitle} />
+        <meta property="twitter:description" content={siteDescription} />
+        <meta property="twitter:image" content={sitePreview} />
       </Head>
       <StickyNav
         flexDirection="row"
