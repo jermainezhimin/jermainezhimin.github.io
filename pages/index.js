@@ -55,6 +55,7 @@ const Index = () => {
         alignItems="flex-start"
         m="0 auto 4rem auto"
         maxWidth="700px"
+        w="100%"
       >
         <Flex
           flexDirection="column"
@@ -172,6 +173,7 @@ const Index = () => {
           justifyContent="flex-start"
           alignItems="flex-start"
           maxWidth="700px"
+          w="100%"
         >
           <Heading
             color={greenTextColor[colorMode]}
@@ -187,47 +189,63 @@ const Index = () => {
               '2019': [
                 {
                   title: 'Joined CrowdAI',
-                  points: [
-                    'Coordinating and designing product direction, system architecture and corresponding engineering tickets.',
-                    'Added soft deletions, change history and data encryption(with vault) on the web serverside.',
-                    'Building the end to end product webfront with sagas, redux, react and typescript.',
-                    'Updated configurations(i.e. webpacker, webpack, babel, eslint, jest), purged npm packages and introduced typescript to the codebase.',
-                    'Developed demo application allowing users to test our real-time predictions and view use cases related to image segmentation via deep learning.',
-                    'Maintained the annotation and prediction overlay interface.',
-                  ],
+                  description:
+                    "With a leap of faith, I jumped into a seed stage startup to flex my engineering muscle; bringing frontend engineering to the table. Here I got to build the company's vision of it's product from the ground up.",
                 },
               ],
               '2018': [
                 {
                   title: 'Joined Sisense',
                   description:
-                    'In May 2019, Periscope Data signed a definitive agreement to merge with Sisense.',
-                  points: [
-                    "Rearchitecting/Integrating Periscope Data's features (warehouse administration, editor/query execution, view management) within the Sisense product as part of the first ship team.",
-                    'Migrating Rails REST API to GraphQL interfaces with service federation.',
-                    'Setting up front-end project using Typescript, React Hooks, routing, localization and the corresponding continuous integrations.',
-                  ],
+                    'In May 2019, Periscope Data signed a definitive agreement to merge with Sisense. Having front row seats to a company merger is SCAR-Y, I got to build the integrated product!',
+                  tags: {
+                    warehouse_tab:
+                      'https://www.youtube.com/watch?v=s_4lK-MXhsk',
+                  },
                 },
                 {
                   title: 'Joined Periscope Data',
-                  points: [
-                    'Built Periscope Data’s summary statistics, code templates, plot.ly integrations, custom modules (within a team).',
-                    'Maintain micro-services to run Python and R within the web app.',
-                  ],
+                  description:
+                    'One of my best experiences in the industry! Also, I got to build really cool technology to run python in the web.',
+                  tags: {
+                    custom_modules:
+                      'https://dtdocs.sisense.com/article/custom-modules',
+                    r_and_python_integration:
+                      'https://dtdocs.sisense.com/article/r-and-python',
+                    summary_stats:
+                      'https://dtdocs.sisense.com/article/statistics',
+                  },
                 },
               ],
               '2016': [
                 {
                   title: 'Joined Apple',
-                  points: [
-                    'Designed and developed a full stack pipeline for retrieving SMC data from remote Mac Pro and Mac Mini servers to assist sysadmins.',
-                    'Designed and developed the user experience and interface of Apple’s internal REST API documentation platform.',
-                    'Designed and developed 6 iOS applications for researching interpolated nearest neighbor location positioning with BLE technology.',
-                    'Designed and developed an event logging platform for server status changes and configurations.',
-                    'Designed and developed a framework to orchestrate remote device network testing.',
-                    'Designed and prototyped a full stack pipeline to securely deliver/store secrets to iOS devices.',
-                    'Conducted user experience testing to benchmark Apple’s internal file sharing systems in APAC.',
-                  ],
+                  description:
+                    'My first job out of college working in the Content Delivery Network(CDN) team. Learning to work in a software team was rough!',
+                },
+              ],
+              '2015': [
+                {
+                  title: 'Switch to Computer Engineering Major',
+                  description:
+                    "I've tried mechanical, eletrical and chemical engineering and at this point nothing really stood out. I went back to software engineering (building something by myself from scratch was fun).",
+                },
+              ],
+              '2014': [
+                {
+                  title: 'Join Game Innovation Program',
+                  description:
+                    'My first interaction with creating games as a game designer intern. It was alot of work and butting of heads before producing Skyward.',
+                  tags: {
+                    skyward: 'https://www.youtube.com/watch?v=s_4lK-MXhsk',
+                  },
+                },
+              ],
+              '2013': [
+                {
+                  title: 'Took my first CS elective',
+                  description:
+                    'I scored a 20 out of 100 in the finals; and thought coding was not for me.',
                 },
               ],
             }}

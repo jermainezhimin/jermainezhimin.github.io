@@ -10,7 +10,6 @@ import {
   InputRightElement,
   Icon,
 } from '@chakra-ui/core'
-import Head from 'next/head'
 import { getSortedBlogsData } from '../../lib/blog'
 import Layout from '../../components/layout'
 import Subscribe from '../../components/subscribe'
@@ -54,10 +53,6 @@ const Blog = ({ allBlogsData }) => {
   return (
     <>
       <Layout>
-        <Head>
-          <title>Jermaine's BLog</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
         <Stack
           as="main"
           spacing={8}

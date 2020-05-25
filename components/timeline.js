@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   useColorMode,
   Heading,
@@ -6,10 +6,13 @@ import {
   Flex,
   List,
   ListItem,
+  Link,
   Icon,
   Stack,
   Divider,
-  Box,
+  Tag,
+  TagIcon,
+  TagLabel,
 } from '@chakra-ui/core'
 
 const YearDivider = () => {
@@ -23,6 +26,7 @@ const YearDivider = () => {
 }
 
 const TimelineStep = ({ title, children }) => {
+  const [expanded, setExpanded] = useState(false)
   const { colorMode } = useColorMode()
   const color = {
     light: 'gray.700',
@@ -52,7 +56,7 @@ const Timeline = ({ activitiesByYear }) => {
         .map((year, index) => {
           const activities = activitiesByYear[year]
           return (
-            <div key={year}>
+            <div style={{ width: '100%' }} key={year}>
               {index !== 0 && <YearDivider />}
               <Heading
                 as="h3"
@@ -67,13 +71,24 @@ const Timeline = ({ activitiesByYear }) => {
                 {activities.map((activity) => (
                   <TimelineStep key={activity.title} title={activity.title}>
                     {activity.description}
-                    <Box as="ul" pt={2} pl={4} ml={2}>
-                      {activity.points.map((point) => (
-                        <Box key="point" as="li" pb={1}>
-                          {point}
-                        </Box>
-                      ))}
-                    </Box>
+                    {activity.tags && (
+                      <Stack flexWrap="wrap" mt={4} spacing={4} isInline>
+                        {Object.keys(activity.tags).map((tag) => (
+                          <Link
+                            mt={2}
+                            key={tag}
+                            href={activity.tags[tag]}
+                            title={activity.tags[tag]}
+                            isExternal
+                          >
+                            <Tag size="sm" key={tag}>
+                              <TagIcon icon="link" size="12px" />
+                              <TagLabel>{tag}</TagLabel>
+                            </Tag>
+                          </Link>
+                        ))}
+                      </Stack>
+                    )}
                   </TimelineStep>
                 ))}
               </List>

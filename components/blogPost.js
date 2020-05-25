@@ -1,20 +1,36 @@
 import React from 'react'
 import NextLink from 'next/link'
+import styled from '@emotion/styled'
+
 import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/core'
 import Date from './date'
+
+const SelectableBox = styled(Box)`
+  transition: background-color 0.25s;
+  :hover {
+    background-color: ${(props) => props.hoverBg};
+  }
+`
+
 const BlogPost = ({ id, title, summary, date }) => {
   const { colorMode } = useColorMode()
   const secondaryTextColor = {
     light: 'gray.700',
     dark: 'gray.400',
   }
-
   const slug = id
 
   return (
-    <NextLink href={`blog/${slug}`} passHref>
+    <NextLink href={'/blog/[id]'} as={`/blog/${slug}`} passHref>
       <Link w="100%" _hover={{ textDecoration: 'none' }}>
-        <Box mb={8} display="block" width="100%">
+        <SelectableBox
+          borderRadius="md"
+          mb={8}
+          p={2}
+          hoverBg={colorMode === 'light' ? '#ebf8ff' : '#1A202C'}
+          display="block"
+          width="100%"
+        >
           <Flex
             width="100%"
             align="flex-start"
@@ -26,9 +42,7 @@ const BlogPost = ({ id, title, summary, date }) => {
               as="h3"
               mb={2}
               mr={5}
-              overflow="hidden"
-              whiteSpace="nowrap"
-              textOverflow="ellipsis"
+              whiteSpace="wrap"
               fontWeight="medium"
             >
               {title}
@@ -43,7 +57,7 @@ const BlogPost = ({ id, title, summary, date }) => {
             </Text>
           </Flex>
           <Text color={secondaryTextColor[colorMode]}>{summary}</Text>
-        </Box>
+        </SelectableBox>
       </Link>
     </NextLink>
   )

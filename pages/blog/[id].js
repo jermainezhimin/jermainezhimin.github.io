@@ -1,7 +1,7 @@
 import React from 'react'
 import remark from 'remark'
 import react from 'remark-react'
-import Link from 'next/link'
+// import Link from 'next/link'
 import {
   useColorMode,
   Heading,
@@ -10,20 +10,47 @@ import {
   Stack,
   Avatar,
   Box,
+  Link,
 } from '@chakra-ui/core'
 import Date from '../../components/date'
 import Layout from '../../components/layout'
+import Subscribe from '../../components/subscribe'
 import { BlogComponents } from '../../components/blogComponents'
 import { getAllBlogIds, getBlogData } from '../../lib/blog'
 
 const editUrl = (slug) =>
   `https://github.com/jermaine/blog/edit/master/blogs/${slug}.md`
 const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://leerob.io/blog/${slug}`
+  `https://mobile.twitter.com/intent/tweet?text=${encodeURIComponent(
+    `https://jermainecheng.com/blog/${slug}`
   )}`
 
 export default function Post({ postData }) {
+  const redTextColor = {
+    light: 'black',
+    dark: 'red.100',
+  }
+  const yellowTextColor = {
+    light: 'black',
+    dark: 'yellow.100',
+  }
+  const greenTextColor = {
+    light: 'black',
+    dark: 'green.100',
+  }
+  const blueTextColor = {
+    light: 'black',
+    dark: 'blue.200',
+  }
+  const headerColors = [
+    redTextColor,
+    yellowTextColor,
+    greenTextColor,
+    blueTextColor,
+  ]
+  const selectedHeaderColor =
+    headerColors[Math.floor(Math.random() * headerColors.length)]
+
   const article = remark()
     .use(react, {
       remarkReactComponents: BlogComponents,
@@ -53,7 +80,13 @@ export default function Post({ postData }) {
           maxWidth="700px"
           w="100%"
         >
-          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+          <Heading
+            color={selectedHeaderColor[colorMode]}
+            letterSpacing="tight"
+            mb={2}
+            as="h1"
+            size="2xl"
+          >
             {postData.title}
           </Heading>
           <Flex
@@ -79,7 +112,8 @@ export default function Post({ postData }) {
           </Flex>
         </Flex>
         {article}
-        <Box>
+        <Box w="100%" mt={8}>
+          <Subscribe />
           <Link href={discussUrl(postData.id)} isExternal>
             {'Discuss on Twitter'}
           </Link>
