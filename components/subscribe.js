@@ -29,19 +29,18 @@ const Subscribe = () => {
     e.preventDefault()
     setLoading(true)
 
-    // const res = await fetch('/api/subscribe', {
-    //   body: JSON.stringify({
-    //     email: inputEl.current.value,
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    // })
+    const res = await fetch('/api/subscribe', {
+      body: JSON.stringify({
+        email: inputEl.current.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
 
     setLoading(false)
-    const error = undefined
-    // const { error } = await res.json()
+    const { error } = await res.json()
 
     if (error) {
       toast({
@@ -55,7 +54,6 @@ const Subscribe = () => {
       return
     }
 
-    // window.fathom.trackGoal('JYFUFMSF', 0)
     inputEl.current.value = ''
     toast({
       title: 'Success!',
