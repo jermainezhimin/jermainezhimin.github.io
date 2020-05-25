@@ -72,9 +72,13 @@ const Layout = ({ children }) => {
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={site} />
+        <meta property="twitter:site" content="@jermainezhimin" />
+        <meta property="twitter:creator" content="@jermainezhimin" />
         <meta property="twitter:title" content={siteTitle} />
         <meta property="twitter:description" content={siteDescription} />
-        <meta property="twitter:image" content={sitePreview} />
+        <meta property="twitter:image:width" content="1280" />
+        <meta property="twitter:image:height" content="800" />
+        <meta property="twitter:image:src" content={sitePreview} />
       </Head>
       <StickyNav
         flexDirection="row"
