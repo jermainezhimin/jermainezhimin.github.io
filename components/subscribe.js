@@ -41,7 +41,6 @@ const Subscribe = () => {
 
     setLoading(false)
     const { error } = await res.json()
-
     if (error) {
       toast({
         title: 'An error occurred.',
