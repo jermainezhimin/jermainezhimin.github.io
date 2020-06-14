@@ -149,27 +149,49 @@ const Hr = () => {
   return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />
 }
 
-const H1 = (props) => <Heading as="h1" size="xl" my={4} {...props} />
-const H2 = (props) => (
-  <DocsHeading as="h2" fontWeight="bold" size="lg" {...props} />
+const H1 = (props) => (
+  <Heading
+    id={props.children[0].toLowerCase().replace(/\s/g, '-')}
+    as="h1"
+    size="xl"
+    my={4}
+    {...props}
+  />
 )
+
+const H2 = (props) => (
+  <DocsHeading
+    id={props.children[0].toLowerCase().replace(/\s/g, '-')}
+    as="h2"
+    fontWeight="bold"
+    size="lg"
+    {...props}
+  />
+)
+
 const H3 = (props) => (
-  <DocsHeading as="h3" size="md" fontWeight="bold" {...props} />
+  <DocsHeading
+    id={props.children[0].toLowerCase().replace(/\s/g, '-')}
+    as="h3"
+    size="md"
+    fontWeight="bold"
+    {...props}
+  />
 )
 const InlineCode = (props) => (
   <Code variantColor="yellow" fontSize="0.84em" {...props} />
 )
 const Br = (props) => <Box height="24px" {...props} />
-const P = (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />
-const Ul = (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />
-const Ol = (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />
+const P = (props) => <Text as="p" mt={4} mb={4} lineHeight="tall" {...props} />
+const Ul = (props) => <Box as="ul" pt={2} pl={4} ml={2} mb={4} {...props} />
+const Ol = (props) => <Box as="ol" pt={2} pl={4} ml={2} mb={4} {...props} />
 const Li = (props) => <Box as="li" pb={1} {...props} />
 
 export const BlogComponents = {
   h1: H1,
   h2: H2,
   h3: H3,
-  inlineCode: InlineCode,
+  code: InlineCode,
   kbd: Kbd,
   br: Br,
   hr: Hr,
