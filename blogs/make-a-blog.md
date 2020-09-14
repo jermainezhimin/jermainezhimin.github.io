@@ -1,5 +1,5 @@
 ---
-title: "Birth of jermainecheng.com"
+title: "👶 Birth of Jermainecheng.com"
 summary: "A rundown on how / why jermainecheng.com was built."
 date: "2020-06-14"
 ---
