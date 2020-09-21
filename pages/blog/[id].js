@@ -19,7 +19,7 @@ import { BlogComponents } from '../../components/blogComponents'
 import { getAllBlogIds, getBlogData } from '../../lib/blog'
 
 const editUrl = (slug) =>
-  `https://github.com/jermaine/blog/edit/master/blogs/${slug}.md`
+  `https://github.com/jermainezhimin/blog/edit/master/blogs/${slug}.md`
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/intent/tweet?text=${encodeURIComponent(
     `https://jermainecheng.com/blog/${slug}`
