@@ -4,7 +4,8 @@ summary: "What to do when setting up technical recruiting."
 date: "2020-09-13"
 ---
 
-The process of interviewing software engineering is controversial, and personally, many companies don’t execute or design it well. Now the tables have turned and I’ve got to play technical interviewer at CrowdAI; This is my checklist for designing future hiring processes (_and hopefully provide a better experience_) 😊:
+The process of interviewing software engineers is controversial, and personally, many companies don’t execute or design it well. Now the tables have turned and I’ve got to play technical interviewer at CrowdAI; This is my checklist for designing future hiring processes (_and hopefully provide a better experience_) 😊:
+
 1. 📲 Hosting initial phone screen
 2. ✍️ Creating a coding challenge 
 3. 🗣️ Running a coding interview
