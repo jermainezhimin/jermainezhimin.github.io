@@ -99,7 +99,7 @@ For me, there are 9 important factors (_each with different weights correspondin
     - How are product/engineering decisions made? 
     - What is involved in a product/technical design processes?
 
-9. Culture — This is a catch all for red flags that are not captured in the above list. This is very relevant to measuring the company's quality of communication during the interview process.
+9. Culture — This is a catch all for red flags that are not captured in the above list. This is very relevant to measuring the company's quality of communication during the interview process. Karen Eber did a great job with curating [this list](https://www.fastcompany.com/90622890/10-questions-to-ask-in-a-job-interview-that-will-really-expose-a-companys-culture) for inspiration.
 
 With a curated set of questions, be consistent in what you ask to every person in the interview process (_ensure the questions are consistent accross companies_). If possible, start a template you could use to summarize your experience and findings at each company and interviewer. 
 
